@@ -99,7 +99,7 @@ function parejak_in(){
         if (i + 1 < participants.length) {
             pareja = [participants[i], participants[i + 1]];
         } else {
-            pareja = [participants[i], '(bakarrik)']; // Manejar el caso impar
+            pareja = [participants[i], 'bakarrik']; // Manejar el caso impar
         }
         parejasArray.push(pareja); // Añadir la pareja al array
     }
@@ -241,7 +241,7 @@ function parejak_izenak_in(parejasArray){
     for(var i=0; i < parejasArray.length; i++){
         let parejie = parejasArray[i];
         let pareja_izenak = parejie[0] + " & " + parejie[1];
-        if(parejie[1] === '(bakarrik)'){
+        if(parejie[1] === 'bakarrik'){
             parejie_bakarrik = pareja_izenak;
         }else{
             nombresEquipos.push(pareja_izenak);
