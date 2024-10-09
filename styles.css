@@ -65,6 +65,7 @@ body {
     align-items: center;
     width: 150px;
     position: relative;
+    margin-right: 100px;
 }
 
 .matchup {
