@@ -77,12 +77,16 @@ body {
 }
 
 .matchup .team {
-    width: 180px;
+    width: 115px;
     padding: 5px;
     background-color: #fff;
     border: 1px solid #000;
     text-align: center;
     margin: 5px 0;
+}
+
+.team{
+    font-size:13px
 }
 
 .round:before {
