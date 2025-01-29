@@ -84,12 +84,26 @@ function getRandomNames(namesArray, x) {
     if (x > namesArray.length) {
         throw new Error("El número solicitado es mayor que la cantidad de nombres disponibles.");
     }
-
-    // Mezclar el array de nombres
-    const shuffled = namesArray.sort(() => Math.random() - 0.5);
-
-    // Retornar los primeros 'x' nombres del array mezclado
+    var shuffled = namesArray.sort(() => Math.random() - 0.5);
+    var shuffled_array = shuffled.slice(0, x)
+    const check = verifyArray(shuffled_array);
+    if(check){
+        shuffleArray(shuffled);
+    }
     return shuffled.slice(0, x);
+}
+
+function verifyArray(names){
+    for(var i=0; i < names.length; i++){
+        if(verifyName(names[i]))
+            return true;
+    }
+    return false;
+}
+
+function verifyName(name){
+    var lett = name.split('');
+    return lett[name.length-1] == "r"
 }
 
 function sorteo_boteruek(){
@@ -97,13 +111,8 @@ function sorteo_boteruek(){
     nameListElement.innerHTML = "";
     //Zenbat botero
     const zenbat_botero = document.getElementById("zenbat_botero").value;
-
-    var selectedNames = getRandomNames(muslayek, zenbat_botero);
-    if(selectedNames.includes("Thor")){
-        console.log("Thor");
-        shuffleArray(muslayek);
-        selectedNames = getRandomNames(muslayek, zenbat_botero);
-    }
+    const participants = Array.from(outputList.getElementsByTagName('li')).map(li => li.firstChild.textContent);
+    var selectedNames = getRandomNames(participants, zenbat_botero);
 
     nameListElement = document.getElementById("nameList");
 
